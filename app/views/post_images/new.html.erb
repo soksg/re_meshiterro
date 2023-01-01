@@ -1,2 +1,16 @@
-<h1>PostImages#new</h1>
-<p>Find me in app/views/post_images/new.html.erb</p>
+<h1>新規投稿</h1>
+  <%= form_with model: @post_image, url: post_images_path, method: :post do |f| %>
+    <div>
+      <p><b>店名</b></p>
+        <%= f.text_field :shop_name %>
+    </div>
+    <div>
+      <p><b>画像</b></p>
+        <%= f.file_field :image, accept: "image/*" %>
+    </div>
+    <div>
+      <p><b>説明</b></p>
+        <%= f.text_area :caption %>
+    </div>
+      <%= f.submit "投稿する" %>
+  <% end %>
